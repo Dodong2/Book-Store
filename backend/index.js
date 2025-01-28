@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 //option 2
 app.use(cors({
-    origin: 'bookstore-carl.netlify.app',
+    origin: 'https://book-store-8til.onrender.com/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))
