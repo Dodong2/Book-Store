@@ -10,10 +10,12 @@ const Home = () => {
     const [books, setBooks] = useState([])
     const [loading, setLoading] = useState(false)
     const [showType, setShowType] = useState('table')
+    const BACKEND_URL = "https://book-store-8til.onrender.com"
+
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://localhost:3000/books').then((res) => {
+        axios.get(`${BACKEND_URL}/books`).then((res) => {
             setBooks(res.data.data)
             setLoading(false)
         })

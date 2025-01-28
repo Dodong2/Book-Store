@@ -10,12 +10,13 @@ const DeleteBook = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { enqueueSnackbar } = useSnackbar()
+  const BACKEND_URL = "https://book-store-8til.onrender.com"
 
 
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .post(`http://localhost:3000/books/deleteBooks/${id}`)
+      .post(`${BACKEND_URL}/books/deleteBooks/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Deleted Successfully!', { variant: 'success' })

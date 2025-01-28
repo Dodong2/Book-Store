@@ -14,11 +14,12 @@ const EditBooks = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { enqueueSnackbar } = useSnackbar()
+  const BACKEND_URL = "https://book-store-8til.onrender.com"
 
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:3000/books//getBooks/${id}`).then((res) => {
+    axios.get(`${BACKEND_URL}/books//getBooks/${id}`).then((res) => {
       setAuthor(res.data.author)
       setPublishYear(res.data.publishYear)
       setTitle(res.data.title)
@@ -36,7 +37,7 @@ const EditBooks = () => {
       title, author, publishYear,
     }
     setLoading(true)
-      axios.post(`http://localhost:3000/books/updateBooks/${id}`, data).then(() => {
+      axios.post(`${BACKEND_URL}/books/updateBooks/${id}`, data).then(() => {
         enqueueSnackbar('Book Edited Successfully!', {variant: 'success'})
         navigate('/')
         setLoading(false)

@@ -8,10 +8,12 @@ const ShowBooks = () => {
   const [book, setBooks] = useState({})
   const [loading, setLoading] = useState(false)
   const { id } = useParams()
+  const BACKEND_URL = "https://book-store-8til.onrender.com"
+
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:3000/books//getBooks/${id}`).then((res) => {
+    axios.get(`${BACKEND_URL}/books/getBooks/${id}`).then((res) => {
       setBooks(res.data)
       setLoading(false)
     }).catch((err) => {

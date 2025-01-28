@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 //option 2
 app.use(cors({
-    origin: 'http://localhost:3000/',
+    origin: 'bookstore-carl.netlify.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }))

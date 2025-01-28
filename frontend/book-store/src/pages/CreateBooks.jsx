@@ -14,13 +14,15 @@ const CreateBooks = () => {
   const navigate = useNavigate()
   const { enqueueSnackbar } = useSnackbar()
 
+  const BACKEND_URL = "https://book-store-8til.onrender.com"
+
   const handleSaveBook = (e) => {
     e.preventDefault();
     const data = {
       title, author, publishYear,
     }
     setLoading(true)
-      axios.post('http://localhost:3000/books/createBooks', data).then(() => {
+      axios.post(`${BACKEND_URL}/books/createBooks`, data).then(() => {
         enqueueSnackbar('Book Created Successfully!', { variant: 'success'})
         navigate('/')
         setLoading(false)
